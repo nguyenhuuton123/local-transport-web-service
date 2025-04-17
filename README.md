@@ -16,6 +16,7 @@ This project is a RESTful web service built with Spring Boot that provides APIs 
 - **Database Migration**: Flyway
 - **Build Tool**: Gradle
 - **Testing**: JUnit 5
+- **API Documentation**: Swagger/OpenAPI 3.0
 
 ## Key Features
 
@@ -26,6 +27,7 @@ This project is a RESTful web service built with Spring Boot that provides APIs 
 - Model mapping with ModelMapper
 - Secure password handling
 - Development tools support
+- Interactive API documentation with Swagger UI
 
 ## Project Structure
 
@@ -73,6 +75,20 @@ The application supports multiple environments:
 ## Security
 
 The application uses Spring Security with JWT for authentication and authorization. All endpoints are secured by default and require proper authentication.
+
+## API Documentation
+
+The application uses Swagger/OpenAPI 3.0 for API documentation. After starting the application, you can access:
+
+- Swagger UI: `http://localhost:8080/swagger-ui.html`
+- OpenAPI JSON: `http://localhost:8080/api-docs`
+
+The documentation includes:
+- All available endpoints
+- Request/response models
+- Authentication requirements
+- Example requests
+- Interactive testing interface
 
 ## Testing
 

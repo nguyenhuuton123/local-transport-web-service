@@ -30,15 +30,16 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/api/auth/login", "/api/admin/**", "/api/accounts/create-account").permitAll()
-//                               .requestMatchers("/api/accounts/**").hasRole("ADMIN")
-//                               .requestMatchers("/api/admin/**", "api/posts/**","api/branches/**").hasRole("SUPER_ADMIN")
-//                                .requestMatchers("/api/news/**").hasRole("NEWS_ADMIN")
+                        req -> req.requestMatchers("/api/auth/login", "/api/accounts/create-account").permitAll()
+                                .requestMatchers("/api/accounts/**").hasRole("ADMIN")
+                                .requestMatchers("/api/admin/**", "api/posts/**", "api/branches/**").hasRole("SUPER_ADMIN")
+                                .requestMatchers("/api/news/**").hasRole("NEWS_ADMIN")
                                 .requestMatchers("/api/tables/**").permitAll()
+                                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**").permitAll()
                                 .anyRequest()
                                 .authenticated()
                 ).userDetailsService(userDetailsService)
-                .sessionManagement(session->session
+                .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
