@@ -34,7 +34,7 @@ public class PostMapper implements IPostMapper {
         Optional.ofNullable(post.getTopic())
                 .map(Topic::getName)
                 .ifPresent(postResponse::setName);
-        Optional.ofNullable(post.getIsHidden())
+        Optional.ofNullable(post.getIsDeleted())
                 .ifPresent(postResponse::setIsHidden);
         Optional.ofNullable(post.getDatePost())
                 .ifPresent(postResponse::setDatePost);

@@ -36,7 +36,6 @@ public class Post {
     private LocalDateTime datePost;
     private String urlName;
     private String author;
-    private Boolean isHidden = false;
     private String icon;
     private String keyword;
     private String tableId;
